@@ -1,0 +1,35 @@
+body{
+    background-color: blue;
+    margin: 0px;
+}
+
+canvas{
+    /*background-image: url('https://image.freepik.com/vecteurs-libre/conception-du-vendeur-fete-foraine-ballons_1308-32922.jpg');
+    background-repeat: no-repeat;
+    background-size: 1200px;*/
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    color: white;
+    
+}
+
+h1{
+    text-align: center;
+    font-size: 50px;
+    font-style: oblique, bold;
+    font-family: 
+    margin-right: 10px;
+
+}
+
+img{
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
