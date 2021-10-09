@@ -1,19 +1,23 @@
 body{
-    background-color: blue;
     margin: 0px;
+    /*background-image: url('https://play-lh.googleusercontent.com/2CGELmJiSElPwjREp7RvpDDzbnq9bGMGhvOBHkqcHrVPdGjJesHHuzKtC6LkCq-F0Fw');
+    background-size: 200px;*/
 }
 
 canvas{
-    /*background-image: url('https://image.freepik.com/vecteurs-libre/conception-du-vendeur-fete-foraine-ballons_1308-32922.jpg');
+    background-image: url('https://media.istockphoto.com/vectors/carnival-duck-shoot-vector-id165607737?k=20&m=165607737&s=612x612&w=0&h=Xl-FatKfSs5WQCNhcLFdjWKIkcSYcFo-R1M0uPh0ACE=');
     background-repeat: no-repeat;
-    background-size: 1200px;*/
+    background-size: 995px;
+    display: flex;
+    justify-content:center;
 }
 
 header{
     display: flex;
-    justify-content: center;
+    justify-content:center;
     flex-direction: row;
-    color: white;
+    color: black;
+    background-color: white;
     
 }
 
@@ -21,9 +25,7 @@ h1{
     text-align: center;
     font-size: 50px;
     font-style: oblique, bold;
-    font-family: 
-    margin-right: 10px;
-
+    font-family:fantasy;
 }
 
 img{
@@ -32,4 +34,16 @@ img{
     align-items: center;
     margin-top: 10px;
     margin-bottom: 5px;
+}
+
+div{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#score{
+    font-size: 50px;
 }

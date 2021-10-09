@@ -5,12 +5,12 @@ class Duck {
         this.W = W;
         this.H = H;
         this.context = context;
-    }
-    draw(){
-        ctx.fillStyle = 'yellow';
-        ctx.fillRect(this.x, this.y, this.W, this.H);
+    } 
+    draw(speed){
+        this.context.fillStyle = 'yellow';
+        this.context.fillRect(this.x + speed, this.y, this.W, this.H);
     }
     remove(){
-        ctx.clearRect(this.x, this.y, this.W, this.H);
+        this.context.clearRect(this.x, this.y, this.W, this.H);
     }
 }
