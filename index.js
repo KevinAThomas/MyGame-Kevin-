@@ -1,7 +1,9 @@
-
-const ctx = document.getElementById('canvas').getContext('2d');
+const canvasEl = document.getElementById('canvas');
+const ctx = canvasEl.getContext('2d');
 
 const img = document.createElement('img')
+
+let ducks = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
 const duckImage = {
   img: img,
@@ -14,49 +16,64 @@ const duckImage = {
   },
 
   draw: function() {
-    ctx.drawImage(this.img, this.x, 542, 80, 80);
-    ctx.drawImage(this.img, this.x + 110 , 542, 80, 80);
-    ctx.drawImage(this.img, this.x + 220 , 542, 80, 80);
-    ctx.drawImage(this.img, this.x + 330 , 542, 80, 80);
-    ctx.drawImage(this.img, this.x + 440 , 542, 80, 80);
-    ctx.drawImage(this.img, this.x + 550 , 542, 80, 80);
-    ctx.drawImage(this.img, this.x + 660 , 542, 80, 80);
-    ctx.drawImage(this.img, this.x + 770 , 542, 80, 80);
-    ctx.drawImage(this.img, this.x + 880 , 542, 80, 80);
-    ctx.drawImage(this.img, this.x + 990 , 542, 80, 80);
-    ctx.drawImage(this.img, this.x + 1100 , 542, 80, 80);
-    ctx.drawImage(this.img, this.x + 1210 , 542, 80, 80);
-    ctx.drawImage(this.img, this.x + 1320 , 542, 80, 80);
-    ctx.drawImage(this.img, this.x + 1430 , 542, 80, 80);
-    ctx.drawImage(this.img, this.x + 1540 , 542, 80, 80);
-    ctx.drawImage(this.img, this.x + 1650 , 542, 160, 160);
+    // je parcours mon tableau de canards
+    for( let i = 0; i < ducks.length; i++){
+      // Pour chq canard, je check
+      if (ducks[i] === 1){
+        ctx.drawImage(this.img, this.x + 110*i, 542, 80, 80);
+        ctx.drawImage(this.img, -this.x + 110*i, 358, 80, 80);
+        ctx.drawImage(this.img, this.x + 110*i, 230, 80, 80);
+      }
+    }
   },
 };
 
 let clickX;
 let clickY;
+
 document.addEventListener("click", function(event){
-    clickX = event.clientX
-    clickY = event.clientY
+  let canvasX
+  let canvasY
+
+  const clientRect = canvasEl.getBoundingClientRect()
+  canvasX = clientRect.x
+  canvasY = clientRect.y
+
+    clickX = event.clientX - canvasX
+    clickY = event.clientY - canvasY
+
     console.log(clickX, clickY)
 });
 
+
+function removeducks(){
+  if(clickX && clickY){
+    ducks[i] = 0;
+  }
+}
+
+
+
+
+/*
 function clicknremove(clickX, clickY){
   let verificationVertical = this.x < clickX && clickX < this.x + 80 // W
-  let verificationHorisontal = 542 < clickY && clickY < 542 + 80 // this.y + H 
+  let verificationHorizontal = 542 < clickY && clickY < 542 + 80 // this.y + H 
   console.log(verificationVertical)
-  console.log(verificationHorisontal)
-  if(verificationVertical && verificationHorisontal){
+  console.log(verificationHorizontal)
+  if(verificationVertical && verificationHorizontal){
     ctx.clearRect(this.x, 542, 80, 80);// alors je supprime le canard
   }
 };
 clicknremove();
+*/
 
 function updateCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
+
   duckImage.move();
   duckImage.draw();
+
   requestAnimationFrame(updateCanvas);
 };
 
@@ -65,14 +82,22 @@ img.onload = updateCanvas;
 img.src = 'https://cdn-icons-png.flaticon.com/512/950/950868.png';
 
 
+//CHRONO BUTTON 
 
 
+var myTimer;
+   function clock() {
+     myTimer = setInterval(myClock, 1000);
+     var c = 20;
 
-var countdown = document.getElementById("crono");
-
-function decompte (){
-  
-}
+     function myClock() {
+       document.getElementById("btnStart").innerHTML = --c;
+       if (c == 0) {
+         clearInterval(myTimer);
+         alert("STOP SHOOTIN'");
+       }
+     }
+   }
 
 
 //MY INITIAL CODE

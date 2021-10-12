@@ -1,4 +1,4 @@
-//LET'S TRY A NEW CODE
+/*//LET'S TRY A NEW CODE
 //class Duck {
     constructor(){
         this.x = 0;
