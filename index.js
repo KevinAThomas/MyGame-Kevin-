@@ -3,7 +3,7 @@ const ctx = canvasEl.getContext('2d');
 
 const img = document.createElement('img')
 
-let ducks = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+let ducks = [1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
 const duckImage = {
   img: img,
@@ -21,8 +21,6 @@ const duckImage = {
       // Pour chq canard, je check
       if (ducks[i] === 1){
         ctx.drawImage(this.img, this.x + 110*i, 542, 80, 80);
-        ctx.drawImage(this.img, -this.x + 110*i, 358, 80, 80);
-        ctx.drawImage(this.img, this.x + 110*i, 230, 80, 80);
       }
     }
   },
@@ -45,28 +43,18 @@ document.addEventListener("click", function(event){
     console.log(clickX, clickY)
 });
 
+/*function clicknremove(){
+let w = clickX < canvas.width + 80;
+let h = clickY < 542 + 80
+for(let i = 0; i < ducks.length; i++){
 
-function removeducks(){
-  if(clickX && clickY){
-    ducks[i] = 0;
-  }
-}
-
-
-
-
-/*
-function clicknremove(clickX, clickY){
-  let verificationVertical = this.x < clickX && clickX < this.x + 80 // W
-  let verificationHorizontal = 542 < clickY && clickY < 542 + 80 // this.y + H 
-  console.log(verificationVertical)
-  console.log(verificationHorizontal)
-  if(verificationVertical && verificationHorizontal){
-    ctx.clearRect(this.x, 542, 80, 80);// alors je supprime le canard
-  }
 };
-clicknremove();
-*/
+clicknremove();*/
+
+//SCORE
+
+
+
 
 function updateCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -98,46 +86,5 @@ var myTimer;
        }
      }
    }
-
-
-//MY INITIAL CODE
-
-/*const img = new Image();
-img.onload = function() {
-  ctx.drawImage(img, 0, 542, 80, 80);
-};
-img.src = 'https://cdn-icons-png.flaticon.com/512/950/950868.png';
-
-
-let speed = 0;
-
-
-function draw(){
-    function clearCanvas() {
-       ctx.clearRect(0, 0, 1600, 800);
-    };
-    clearCanvas()
-
-    ctx.drawImage(img, 0 + speed, 542, 80, 80);
-    ctx.drawImage(img, 150 + speed, 542, 80, 80);
-    ctx.drawImage(img, 300 + speed, 542, 80, 80);
-    ctx.drawImage(img, 450 + speed, 542, 80, 80);
-    ctx.drawImage(img, 600 + speed, 542, 80, 80);
-    ctx.drawImage(img, 750 + speed, 542, 80, 80);
-    speed++
-  //setInterval(function() {
-    //ctx.drawImage(img, 0 + speed, 542, 80, 80);
-//desin de canards touttes les 2sec
-    //}, 2000)
-    requestAnimationFrame(draw) 
-}
-    draw()
-
-
-/*function animLoop() {
-    draw();
-    requestAnimationFrame(animLoop); // replanifie animLoop toutes les 16ms
-}
-animLoop()*/
 
 
