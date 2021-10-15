@@ -18,9 +18,8 @@ const duckImage = {
   },
 
   draw: function() {
-    // je parcours mon tableau de canards
     for( let i = 0; i < ducks.length; i++){
-      // Pour chq canard, je check
+      
       if (ducks[i] === 1){
         ctx.drawImage(this.img, this.x + 110*i, 542, 80, 80);
         position[i] = this.x + 110*i;
@@ -28,6 +27,9 @@ const duckImage = {
     }
   },
 };
+
+
+//REMOVES DUCK WHEN CLICKING
 
 let clickX;
 let clickY;
@@ -59,7 +61,7 @@ position.forEach( function(duckX, i){
 var myTimer;
 function clock() {
   myTimer = setInterval(myClock, 1000);
-  var c = 15;
+  var c = 10;
   function myClock() {
   document.getElementById("btnStart").innerHTML = --c;
   if (c === 0) {
@@ -68,8 +70,6 @@ function clock() {
     }
   }
 }
-
-//SCORE
 
 function updateCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
